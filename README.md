@@ -34,7 +34,7 @@ Available on the Chrome Web Store for Chrome and all Chromium-based browsers:
 
 ### Userscript (Tampermonkey, Violentmonkey, Greasemonkey)
 
-<a href="TODO-GREASYFORK-URL" target="_blank"><img src="https://img.shields.io/badge/Install%20from-Greasyfork-990000?style=for-the-badge&logo=tampermonkey&logoColor=white" alt="Install from Greasyfork"></a>
+<a href="https://greasyfork.org/fr/scripts/572594-downlove" target="_blank"><img src="https://img.shields.io/badge/Install%20from-Greasyfork-990000?style=for-the-badge&logo=tampermonkey&logoColor=white" alt="Install from Greasyfork"></a>
 
 <a href="https://github.com/Hogwai/downlove/releases/download/userscript-v1.0.0/downlove.user.js" target="_blank"><img src="https://img.shields.io/badge/Install%20from-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Install from GitHub"></a>
 
