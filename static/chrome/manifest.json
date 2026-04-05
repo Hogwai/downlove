@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Downlove",
+  "description": "Download a Lovable.dev project as a ZIP",
+  "version": "0.1.0",
+  "icons": {
+    "16": "icon_16.png",
+    "48": "icon_48.png",
+    "128": "icon_128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://lovable.dev/*"],
+      "run_at": "document_idle",
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon_16.png",
+      "48": "icon_48.png"
+    }
+  },
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": [
+    "https://lovable.dev/*",
+    "https://api.lovable.dev/*"
+  ]
+}

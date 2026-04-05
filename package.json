@@ -1,0 +1,26 @@
+{
+  "name": "downlove",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Download a Lovable.dev project as a ZIP (extension + userscript + CLI)",
+  "scripts": {
+    "build": "node build.js",
+    "build:chrome": "node build.js --target=chrome",
+    "build:firefox": "node build.js --target=firefox",
+    "build:userscript": "node build.js --target=userscript",
+    "build:all": "node build.js --target=all --no-version",
+    "clean": "rm -rf dist",
+    "sanity": "node scripts/sanity.js",
+    "icons": "node scripts/gen-icons.js"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.0",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "rollup": "^4.24.0",
+    "rollup-plugin-copy": "^3.5.0"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1"
+  }
+}
