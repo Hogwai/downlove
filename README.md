@@ -12,7 +12,7 @@ The extension and userscript share the same core logic (`src/shared/`); only the
 
 - **Chrome / Chromium / Brave / Edge:** `chrome://extensions` → enable Developer mode → Load unpacked → select `dist/chrome/`.
 - **Firefox:** `about:debugging#/runtime/this-firefox` → Load Temporary Add-on → select `dist/firefox/manifest.json`. (Temporary add-ons are unloaded when you close Firefox; reload each session.)
-- **Userscript:** install [Tampermonkey](https://www.tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/), then open `dist/downlove.user.js` in a browser tab. Your userscript manager will offer to install it.
+- **Userscript:** install [Tampermonkey](https://www.tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/), then open [downlove.user.js](https://github.com/Hogwai/downlove/releases/download/userscript-v1.0.0/downlove.user.js) to let your userscript manager install the latest release. For development, use `dist/downlove.user.js` from a local build instead.
 
 After installing, visit any `https://lovable.dev/projects/<uuid>/…` page while logged in. A blue "Download ZIP" button appears in the bottom-right corner. Click it. The zip lands in your default downloads folder, named `<project-uuid>.zip`.
 

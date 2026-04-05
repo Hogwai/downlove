@@ -1,24 +1,54 @@
 #!/usr/bin/env bash
-# pkg_ext.sh: zip dist/chrome and dist/firefox into release artifacts.
 set -euo pipefail
 
-cd "$(dirname "$0")"
-
-if [[ ! -d dist/chrome || ! -d dist/firefox ]]; then
-  echo "dist/chrome or dist/firefox missing. Run 'npm run build' first." >&2
+if [ -z "${1:-}" ]; then
+  echo "Usage: $0 <platform>"
+  echo
+  echo "Examples:"
+  echo "  $0 firefox"
+  echo "  $0 chrome"
   exit 1
 fi
 
-VERSION_CHROME=$(node -e "console.log(require('./versions.json').chrome)")
-VERSION_FIREFOX=$(node -e "console.log(require('./versions.json').firefox)")
+PLATFORM="$1"
 
-mkdir -p dist/packages
-rm -f "dist/packages/downlove-chrome-${VERSION_CHROME}.zip"
-rm -f "dist/packages/downlove-firefox-${VERSION_FIREFOX}.zip"
+if [[ "$PLATFORM" != "firefox" && "$PLATFORM" != "chrome" ]]; then
+  echo "Available platforms: firefox, chrome"
+  exit 1
+fi
 
-(cd dist/chrome && zip -rq "../packages/downlove-chrome-${VERSION_CHROME}.zip" .)
-(cd dist/firefox && zip -rq "../packages/downlove-firefox-${VERSION_FIREFOX}.zip" .)
+VERSION=$(jq -r ".$PLATFORM" versions.json)
 
-echo "Built:"
-echo "  dist/packages/downlove-chrome-${VERSION_CHROME}.zip"
-echo "  dist/packages/downlove-firefox-${VERSION_FIREFOX}.zip"
+case "$PLATFORM" in
+  firefox)
+    if ! command -v web-ext >/dev/null 2>&1; then
+      echo "Error: web-ext not found."
+      echo "  Install it with: npm install -g web-ext"
+      exit 1
+    fi
+
+    echo "Linting Firefox extension..."
+    web-ext lint -s dist/firefox
+
+    echo "Building Firefox extension..."
+    web-ext build -s dist/firefox
+    ;;
+
+  chrome)
+    if ! command -v zip >/dev/null 2>&1; then
+      echo "Error: zip utility not found. Install it (e.g., 'apt install zip' or 'brew install zip')"
+      exit 1
+    fi
+
+    OUTFILE="downlove-chrome-${VERSION}.zip"
+    rm -f "$OUTFILE"
+
+    echo "Creating Chrome archive (v${VERSION})..."
+    cd dist/chrome
+    zip -r -q "../../$OUTFILE" .
+    cd ../..
+    echo "Archive created: $OUTFILE"
+    ;;
+esac
+
+echo "Operation completed for $PLATFORM."
