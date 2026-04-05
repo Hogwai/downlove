@@ -8,11 +8,41 @@ Download a [Lovable.dev](https://lovable.dev) project as a ZIP file. Three deliv
 
 The extension and userscript share the same core logic (`src/shared/`); only the download-trigger path differs between targets.
 
-## Install (unpacked, for development)
+## Installation
+
+Choose your preferred installation method.
+
+### Google Chrome and Chromium-based browsers
+
+> **Note:** submission is currently pending review on the Chrome Web Store. The link below will become active once approved. In the meantime, use the [development install](#development-install-unpacked).
+
+Available on the Chrome Web Store for Chrome and all Chromium-based browsers:
+
+<a href="TODO-CHROME-WEB-STORE-URL" target="_blank"><img src="https://user-images.githubusercontent.com/585534/107280622-91a8ea80-6a26-11eb-8d07-77c548b28665.png" alt="Get Downlove for Chrome" height="60"></a>
+
+[![Microsoft Edge](https://custom-icon-badges.demolab.com/badge/Microsoft%20Edge-2771D8?logo=edge-white&logoColor=white)](TODO-CHROME-WEB-STORE-URL)
+[![Brave](https://img.shields.io/badge/Brave-FB542B?logo=Brave&logoColor=white)](TODO-CHROME-WEB-STORE-URL)
+[![Vivaldi](https://img.shields.io/badge/Vivaldi-EF3939?logo=Vivaldi&logoColor=white)](TODO-CHROME-WEB-STORE-URL)
+[![Opera](https://img.shields.io/badge/Opera-FF1B2D?logo=Opera&logoColor=white)](TODO-CHROME-WEB-STORE-URL)
+[![Arc](https://img.shields.io/badge/Arc-FCBFBD?logo=arc&logoColor=000)](TODO-CHROME-WEB-STORE-URL)
+
+### Firefox
+
+> **Note:** submission is currently pending review on Firefox Add-ons (AMO). The link below will become active once approved. In the meantime, use the [development install](#development-install-unpacked).
+
+<a href="TODO-AMO-URL" target="_blank"><img src="https://user-images.githubusercontent.com/585534/107280546-7b9b2a00-6a26-11eb-8f9f-f95932f4bfec.png" alt="Get Downlove for Firefox" height="60"></a>
+
+### Userscript (Tampermonkey, Violentmonkey, Greasemonkey)
+
+<a href="TODO-GREASYFORK-URL" target="_blank"><img src="https://img.shields.io/badge/Install%20from-Greasyfork-990000?style=for-the-badge&logo=tampermonkey&logoColor=white" alt="Install from Greasyfork"></a>
+
+<a href="https://github.com/Hogwai/downlove/releases/download/userscript-v1.0.0/downlove.user.js" target="_blank"><img src="https://img.shields.io/badge/Install%20from-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Install from GitHub"></a>
+
+### Development install (unpacked)
 
 - **Chrome / Chromium / Brave / Edge:** `chrome://extensions` → enable Developer mode → Load unpacked → select `dist/chrome/`.
 - **Firefox:** `about:debugging#/runtime/this-firefox` → Load Temporary Add-on → select `dist/firefox/manifest.json`. (Temporary add-ons are unloaded when you close Firefox; reload each session.)
-- **Userscript:** install [Tampermonkey](https://www.tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/), then open [downlove.user.js](https://github.com/Hogwai/downlove/releases/download/userscript-v1.0.0/downlove.user.js) to let your userscript manager install the latest release. For development, use `dist/downlove.user.js` from a local build instead.
+- **Userscript:** install [Tampermonkey](https://www.tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/), then open `dist/downlove.user.js` from a local build.
 
 After installing, visit any `https://lovable.dev/projects/<uuid>/…` page while logged in. A blue "Download ZIP" button appears in the bottom-right corner. Click it. The zip lands in your default downloads folder, named `<project-uuid>.zip`.
 
