@@ -61,7 +61,7 @@ const userscriptBanner = `// ==UserScript==
 // @version      ${versions.userscript}
 // @description  Download a Lovable.dev project as a ZIP
 // @match        https://lovable.dev/*
-// @grant        GM_download
+// @grant        none
 // @run-at       document-idle
 // @noframes
 // @license      MIT
