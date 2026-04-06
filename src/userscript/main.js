@@ -6,21 +6,13 @@
 import { installUI } from '../shared/ui.js';
 
 /**
- * Trigger a file download for the given Blob. Prefers GM_download when
- * available (Tampermonkey / Violentmonkey), falls back to a synthetic
- * anchor click otherwise. Either way the file lands in the user's
- * default downloads folder.
+ * Trigger a file download for the given Blob via a synthetic anchor click.
+ * Same technique as the extension content script. GM_download is NOT used
+ * because it cannot resolve blob URLs created in userscript context (the
+ * download is delegated to Tampermonkey's background process which operates
+ * in a separate context where the blob URL is unreachable).
  */
 async function triggerDownload(blob, filename) {
-  // eslint-disable-next-line no-undef
-  if (typeof GM_download === 'function') {
-    const url = URL.createObjectURL(blob);
-    // eslint-disable-next-line no-undef
-    GM_download({ url, name: filename });
-    setTimeout(() => { try { URL.revokeObjectURL(url); } catch {} }, 60000);
-    return;
-  }
-  // Fallback: synthetic anchor click.
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
