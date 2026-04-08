@@ -26,9 +26,7 @@ Available on the Chrome Web Store for Chrome and all Chromium-based browsers:
 
 ### Firefox
 
-> **Note:** submission is currently pending review on Firefox Add-ons (AMO). The link below will become active once approved. In the meantime, use the [development install](#development-install-unpacked).
-
-<a href="TODO-AMO-URL" target="_blank"><img src="https://user-images.githubusercontent.com/585534/107280546-7b9b2a00-6a26-11eb-8f9f-f95932f4bfec.png" alt="Get Downlove for Firefox" height="60"></a>
+<a href="https://addons.mozilla.org/fr/firefox/addon/downlove/" target="_blank"><img src="https://user-images.githubusercontent.com/585534/107280546-7b9b2a00-6a26-11eb-8f9f-f95932f4bfec.png" alt="Get Downlove for Firefox" height="60"></a>
 
 ### Userscript (Tampermonkey, Violentmonkey, Greasemonkey)
 
