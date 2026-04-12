@@ -124,7 +124,7 @@ jobs:
           cd ../..
 
       - name: Create Chrome Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: chrome-v${{ needs.detect-changes.outputs.chrome-version }}
           name: Chrome Extension v${{ needs.detect-changes.outputs.chrome-version }}
@@ -173,7 +173,7 @@ jobs:
           cd ../..
 
       - name: Create Firefox Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: firefox-v${{ needs.detect-changes.outputs.firefox-version }}
           name: Firefox Extension v${{ needs.detect-changes.outputs.firefox-version }}
@@ -232,7 +232,7 @@ jobs:
           fi
 
       - name: Create Userscript Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: userscript-v${{ needs.detect-changes.outputs.userscript-version }}
           name: Userscript v${{ needs.detect-changes.outputs.userscript-version }}
